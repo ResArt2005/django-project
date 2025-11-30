@@ -1,3 +1,4 @@
+cd /mnt/c/users/resar/Documents/GitHub/django-project/my_site
 docker-compose up -d
 docker compose down
 docker restart django_app
@@ -23,3 +24,18 @@ docker compose exec web python manage.py collectstatic --noinput
 
 # Проверим
 curl http://localhost:8001/admin/
+
+# Деактивируйте текущий venv (если активен)
+deactivate
+
+# Удалите старый venv
+rm -rf env
+
+# Создайте новый
+python -m venv env
+
+# Активируйте
+source env/bin/activate
+
+# Установите зависимости
+pip install -r requirements.txt
